@@ -1,4 +1,4 @@
-RSpec.describe 'any_of' do
+RSpec.describe RSpec::AnyOf, '#any_of' do
   let(:receiver) { double(:receiver) }
 
   it 'passes if method is called with a first allowed argument' do

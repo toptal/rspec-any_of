@@ -1,4 +1,4 @@
-RSpec.describe 'all_of' do
+RSpec.describe RSpec::AnyOf, '#all_of' do
   let(:receiver) { double(:receiver) }
 
   it 'passes if method is called with all required arguments' do

@@ -1,0 +1,28 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6
+  DisplayCopNames: true
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Max: 100
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 6
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+# One is an expectation under test, another is the failure expectation
+RSpec/MultipleExpectations:
+  Max: 2
+
+RSpec/VerifiedDoubles:
+  Enabled: false

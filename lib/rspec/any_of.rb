@@ -1,4 +1,5 @@
 module RSpec
+  # Provides argument matchers accepting a list of allowed arguments.
   module AnyOf
     # Liberal argument inclusion matcher.
     #
