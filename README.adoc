@@ -1,0 +1,56 @@
+= RSpec `any_of`/`all_of` argument matchers
+
+Argument matchers accepting a list of allowed arguments:
+
+- Liberal `any_of` argument inclusion matcher
+- Strict `all_of` argument inclusion matcher
+
+== Installation
+
+Add `gem 'rspec-any_of'` to `Gemfile` and run `bundle`.
+
+== Usage
+
+Add the following to your `spec/spec_helper.rb`:
+
+[source,ruby]
+----
+require 'rspec/any_of'
+
+RSpec.configure do |config|
+  # ...
+  config.include RSpec::AnyOf
+end
+----
+
+Using `rspec-any_of` you can make flexible expectations on method call arguments.
+
+[source,ruby]
+----
+it 'sends greetings to chat' do
+  expect(Chat)
+    .to receive(:message)
+    .with(all_of('Hello', 'My name is Phil')).twice
+end
+
+it 'greets' do
+  expect(Greeter)
+    .to receive(:greet)
+    .with(any_of('hello', 'good bye'))
+end
+----
+
+== Development
+
+Check out the repo, run `bundle` to install dependencies.
+Make your change, run `rspec`, `rubocop` to check the style, and `yardoc` to make sure documentation is correct.
+
+== Contributing
+
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the https://www.contributor-covenant.org[Contributor Covenant] code of conduct.
+
+Bug reports and pull requests are welcome  https://github.com/toptal/rspec-any_of/issues[on GitHub].
+
+== License
+
+https://opensource.org/licenses/MIT[MIT License].
