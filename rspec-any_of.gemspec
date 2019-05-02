@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.68.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.32.0'
+  spec.add_development_dependency 'yard', '0.9.19'
 end

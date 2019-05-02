@@ -1,15 +1,16 @@
+# :nodoc:
 module RSpec
   # Provides argument matchers accepting a list of allowed arguments.
   module AnyOf
-    # Liberal argument inclusion matcher.
+    # @!method any_of(*allowed_arguments)
+    #   Liberal argument inclusion matcher.
     #
-    # Example:
+    #   @param allowed_arguments [Array<Object>] allowed arguments
     #
-    # ```ruby
-    # expect(Something)
-    #   .to receive(:something)
-    #   .with(any_of(:one, :two)).exactly(2).times
-    # ```
+    #   @example
+    #     expect(Greeter)
+    #       .to receive(:greet)
+    #       .with(any_of('hello', 'good bye'))
     #
     RSpec::Matchers.define :any_of do |*expected|
       description do
@@ -21,15 +22,15 @@ module RSpec
       end
     end
 
-    # Strict argument inclusion matcher. Should be used with countable qualifier.
+    # @!method all_of(*required_arguments)
+    #   Strict argument inclusion matcher. Should be used with countable qualifier.
     #
-    # Example:
+    #   @param required_arguments [Array<Object>] required arguments
     #
-    # ```ruby
-    # expect(Something)
-    #   .to receive(:something)
-    #   .with(all_of(:one, :two)).twice
-    # ```
+    #   @example
+    #     expect(Chat)
+    #       .to receive(:message)
+    #       .with(all_of('Hello', 'My name is Phil')).twice
     #
     RSpec::Matchers.define :all_of do |*expected|
       description do
