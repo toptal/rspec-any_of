@@ -31,12 +31,23 @@ it 'sends greetings to chat' do
   expect(Chat)
     .to receive(:message)
     .with(all_of('Hello', 'My name is Phil')).twice
+
+  # The only option normally is to be more verbose.
+  # This is the most optimistic example, with more arguments it's getting noticeably worse.
+  expect(Chat)
+    .to  receive(:message).with('Hello')
+    .and receive(:message).with('My name is Phil')
 end
 
 it 'greets' do
   expect(Greeter)
     .to receive(:greet)
     .with(any_of('hello', 'good bye'))
+
+  # Or, normally:
+  expect(Greeter)
+    .to receive(:greet)
+    .with(be_a('hello').or(be_a('good bye')))
 end
 ----
 
