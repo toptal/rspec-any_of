@@ -47,7 +47,7 @@ it 'greets' do
   # Or, normally:
   expect(Greeter)
     .to receive(:greet)
-    .with(be_a('hello').or(be_a('good bye')))
+    .with(eq('hello').or(eq('good bye')))
 end
 ----
 
