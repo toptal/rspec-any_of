@@ -24,5 +24,10 @@ RSpec.configure do |config|
     RSpec::Mocks.space.proxy_for(receiver).reset
   end
 
+  config.expect_with :rspec do |c|
+    # Prevent truncation of failure messages.
+    c.max_formatted_output_length = 2_000
+  end
+
   config.include RSpec::AnyOf
 end
